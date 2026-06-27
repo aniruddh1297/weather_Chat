@@ -1,0 +1,67 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --sky:      #EEF4FF;
+  --cloud:    #F8FAFF;
+  --mist:     #E2EAFF;
+  --horizon:  #C5D5FF;
+  --breeze:   #7B9EF8;
+  --deep:     #2B4AB7;
+  --ink:      #1A1F36;
+  --dusk:     #5B6589;
+  --fog:      #9AA3C2;
+  --sun:      #F5C94E;
+  --coral:    #FF7355;
+  --white:    #FFFFFF;
+  --radius:   16px;
+  --shadow:   0 4px 24px rgba(43, 74, 183, 0.08);
+  --shadow-lg: 0 8px 40px rgba(43, 74, 183, 0.12);
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--sky);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--horizon); border-radius: 4px; }
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 320px)); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+@keyframes bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+  30%            { transform: translateY(-7px); opacity: 1; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; }
+}
